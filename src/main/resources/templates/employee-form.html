@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:text="${title}"></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container">
+  <h1 th:text="${title}"></h1>
+
+  <form th:object="${employee}" th:action="@{/employees/save}" method="post">
+    <div class="form-group">
+      <input type="hidden" class="form-control" id="id" name="id"
+             th:value="${employee.id}" required>
+    </div>
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input type="text" class="form-control" id="firstName" name="firstName"
+             th:value="${employee.firstName}" required>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input type="text" class="form-control" id="lastName" name="lastName"
+             th:value="${employee.lastName}" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email"
+             th:value="${employee.email}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phoneNumber">Phone:</label>
+      <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber"
+             th:value="${employee.phoneNumber}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="salary">Salary:</label>
+      <input type="number" class="form-control" id="salary" name="salary"
+             th:value="${employee.salary}" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a th:href="@{/}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
